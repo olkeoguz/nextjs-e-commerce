@@ -14,69 +14,68 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ImageCarousel() {
-    const styles = useStyles();
-  var items = [
+  const styles = useStyles();
+  var lists = [
     {
-      name: 'Random Name #1',
-      description: 'Probably the most random thing you have ever seen!',
-      src: 'https://source.unsplash.com/WLUHO9A_xik/700x400',
+      id: 1,
+      items: [
+        {
+          name: 'Random Name #1',
+          description: 'Shopping Cart',
+          src: '/shopping.jpg',
+        },
+        {
+          name: 'Random Name #2',
+          description: 'Open Shop',
+          src: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
+        },
+        {
+          name: 'Random Name #3',
+          description: 'Women Shopping',
+          src: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
+        },
+      ],
     },
     {
-      name: 'Random Name #2',
-      description: 'Hello World!',
-      src: 'https://source.unsplash.com/4yta6mU66dE/700x400',
+      id: '2',
+      items: [
+        {
+          name: 'Random Name #4',
+          description: 'Mens Fashion',
+          src: 'https://images.unsplash.com/photo-1543322748-33df6d3db806?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80',
+        },
+        {
+          name: 'Random Name #5',
+          description: 'Electronic Devices',
+          src: 'https://images.unsplash.com/photo-1468495244123-6c6c332eeece?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=622&q=80',
+        },
+        {
+          name: 'Random Name #6',
+          description: 'Jewelry',
+          src: 'https://images.unsplash.com/photo-1584377334016-464803e03b80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
+        },
+      ],
     },
   ];
 
   return (
     <Container maxWidth='lg' className={styles.container}>
       <Carousel autoPlay timeout={1000} animation='fade' interval={30000}>
-        {items.map((item) => (
-          <Grid container spacing={1} key={item.name}>
-            <Grid item md={4} xs={12} sm={6}>
-              <Image
-                src={item.src}
-                layout='responsive'
-                width={500}
-                height={300}
-              />
-            </Grid>
-            <Grid item md={4} sm={6}>
-              <Image
-                src={item.src}
-                layout='responsive'
-                width={500}
-                height={300}
-              />
-            </Grid>
-            <Grid item md={4}>
-              <Image
-                src={item.src}
-                layout='responsive'
-                width={500}
-                height={300}
-              />
-            </Grid>
+        {lists.map((list) => (
+          <Grid container spacing={1} key={list.id}>
+            {list.items.map((item) => (
+              <Grid item xs={4} key={item.name}>
+                <Image
+                  src={item.src}
+                  layout='responsive'
+                  width={500}
+                  height={300}
+                />
+              </Grid>
+            ))}
           </Grid>
         ))}
       </Carousel>
     </Container>
   );
-}
-
-{
-  /* <Container maxWidth='sm'>
-      <Carousel autoPlay timeout={500} animation='slide'>
-        {items.map((item) => (
-          <Paper>
-            <Image
-              src={item.src}
-              layout='responsive'
-              width={500}
-              height={300}
-            />
-          </Paper>
-        ))}
-      </Carousel>
-    </Container> */
 }

@@ -11,8 +11,15 @@
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.58",
+    "@stripe/react-stripe-js": "^1.4.1",
+    "@stripe/stripe-js": "^1.15.0",
+    "bcryptjs": "^2.4.3",
     "date-fns": "^2.22.1",
+    "formik": "^2.2.9",
+    "material-ui-popup-state": "^1.8.3",
+    "mongodb": "^3.6.9",
     "next": "10.2.3",
+    "next-auth": "^3.26.1",
     "next-redux-wrapper": "^7.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -20,6 +27,8 @@
     "react-redux": "^7.2.4",
     "redux": "^4.1.0",
     "redux-devtools-extension": "^2.13.9",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "stripe": "^8.154.0",
+    "yup": "^0.32.9"
   }
 }

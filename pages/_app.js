@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-// import theme from '../theme';
 import Layout from '../components/UI/Layout/Layout';
 
 import { Provider } from 'react-redux';
@@ -20,7 +19,7 @@ function MyApp(props) {
   const store = useStore(pageProps.initialReduxState);
 
   // Create a theme instance.
-const theme = createMuiTheme({
+ const theme = createMuiTheme({
   palette: {
     primary: {
       main: '#556cd6',
@@ -37,7 +36,7 @@ const theme = createMuiTheme({
   },
 });
 
-  React.useEffect(() => {
+  useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
@@ -46,7 +45,7 @@ const theme = createMuiTheme({
   }, []);
 
   return (
-    <React.Fragment>
+    <Fragment>
       <Head>
         <title>My page</title>
         <meta
@@ -63,7 +62,7 @@ const theme = createMuiTheme({
           </Layout>
         </Provider>
       </ThemeProvider>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

@@ -62,18 +62,18 @@ export const useStyles = makeStyles((theme) => ({
     }),
     marginLeft: 0,
   },
-  menu: {
-    flexGrow: 1,
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  listItem:{
-    margin:theme.spacing(0,2),
+  // menu: {
+  //   flexGrow: 1,
+  //   display: 'flex',
+  //   justifyContent: 'center',
+  // },
+  listItem: {
+    margin: theme.spacing(0, 2),
   },
   avatar: {
     marginLeft: theme.spacing(2),
-    width: theme.spacing(7),
-    height: theme.spacing(7),
+    width: theme.spacing(5),
+    height: theme.spacing(5),
   },
   drawerTitle: {
     color: (isDarkMode) => (isDarkMode ? 'white' : 'black'),
@@ -82,7 +82,26 @@ export const useStyles = makeStyles((theme) => ({
   active: {
     background: 'orange',
   },
-  menuItem:{
+  menuItem: {
     color: (isDarkMode) => (isDarkMode ? 'white' : 'black'),
-  }
+  },
+  darkModeIcon: {
+    color: (isDarkMode) => (isDarkMode ? 'white' : 'black'),
+    cursor: 'pointer',
+    marginLeft: theme.spacing(2),
+  },
+  cartIcon: {
+    color: (isDarkMode) => (isDarkMode ? 'white' : 'black'),
+  },
+  appBarEnd: {
+    marginLeft: 'auto',
+    display: 'flex',
+    alignItems: 'center',
+  },
+  welcome: {
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+    },
+    marginRight: theme.spacing(1),
+  },
 }));

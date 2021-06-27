@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
+import { Typography } from '@material-ui/core';
 
 const labels = {
   0.5: 'Useless',
@@ -22,19 +23,37 @@ const useStyles = makeStyles({
     display: 'flex',
     alignItems: 'center',
   },
+  box: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+  },
 });
 
-export default function RateThisProduct() {
-  const [value, setValue] = useState(5);
+export default function RateThisProduct({ rating, value, setValue }) {
   const [hover, setHover] = useState(-1);
   const classes = useStyles();
 
-  console.log(value);
+  if (rating) {
+    return (
+      <Box
+        component='fieldset'
+        mb={1}
+        borderColor='transparent'
+        className={classes.box}
+      >
+        <Rating name='read-only' precision={0.5} value={rating} readOnly />
+        <Typography variant='caption'>
+          {labels[hover !== -1 ? hover : value]}
+        </Typography>
+      </Box>
+    );
+  }
 
   return (
     <div className={classes.root}>
       <Rating
-        name="hover-feedback"
+        name='hover-feedback'
         value={value}
         precision={0.5}
         onChange={(event, newValue) => {
@@ -43,9 +62,12 @@ export default function RateThisProduct() {
         onChangeActive={(event, newHover) => {
           setHover(newHover);
         }}
-        size="large"
+        size='large'
       />
-      {value !== null && <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>}
+
+      {value !== null && (
+        <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>
+      )}
     </div>
   );
 }

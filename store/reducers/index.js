@@ -1,10 +1,11 @@
-import { combineReducers } from 'redux'
-import products from "./products";
-
+import { combineReducers } from 'redux';
+import cart from './cart';
+import orders from './orders';
 
 // COMBINED REDUCERS
 const reducers = {
-    products
-}
+  cart,
+  orders,
+};
 
-export default combineReducers(reducers)
+export default combineReducers(reducers);

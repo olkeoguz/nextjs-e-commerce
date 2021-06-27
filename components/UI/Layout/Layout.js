@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import AppBar from './AppBar';
 import SideDrawer from './SideDrawer';
@@ -8,6 +8,7 @@ export default function Layout({ children, isDarkMode, setIsDarkMode }) {
   const [open, setOpen] = useState(false);
 
   const classes = useStyles(isDarkMode);
+
 
   const handleDrawerOpen = () => {
     setOpen(true);
