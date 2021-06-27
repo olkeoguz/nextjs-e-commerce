@@ -1,4 +1,4 @@
-import { Container, Grid, Paper } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 import { getSession } from 'next-auth/client';
 import CartItems from '../components/cart/CartItems';
 import Purchase from '../components/checkout/Purchase';
