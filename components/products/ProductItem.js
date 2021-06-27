@@ -54,6 +54,7 @@ export default function ProductItem({ product }) {
             width={500}
             height={300}
             objectFit='contain'
+            unoptimized={true}
           />
         </CardMedia>
         <CardContent>

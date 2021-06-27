@@ -70,7 +70,7 @@ const OrderItem = ({ order }) => {
           }}
         >
           <div className={classes.imageContainer}>
-            <Image src={item.image} width={100} height={100} object='cover' />
+            <Image src={item.image} width={100} height={100} object='cover' unoptimized={true} />
           </div>
           <div className={classes.details}>
             <Typography variant='h6'>

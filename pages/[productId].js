@@ -106,6 +106,7 @@ const ProductDetail = ({ product, session }) => {
               width={550}
               height={721}
               objectFit='contain'
+              unoptimized={true}
             />
             <GridListTileBar
               title={product.title}

@@ -70,6 +70,7 @@ export default function ImageCarousel() {
                   layout='responsive'
                   width={500}
                   height={300}
+                  unoptimized={true}
                 />
               </Grid>
             ))}
