@@ -84,6 +84,11 @@ const ProductDetail = ({ product, session }) => {
 
   const toggleWishlist = () => {
     let storedItems = JSON.parse(localStorage.getItem('storedItems'));
+
+    if (!storedItems) {
+      storedItems = [];
+    }
+
     if (isOnWishList) {
       storedItems = storedItems.filter((item) => item.id !== product.id);
       localStorage.setItem('storedItems', JSON.stringify(storedItems));

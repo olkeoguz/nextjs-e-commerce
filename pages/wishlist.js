@@ -10,7 +10,7 @@ const WishList = () => {
     setProducts(wishListProducts);
   }, []);
 
-  if (products.length === 0) {
+  if (!products || products.length === 0) {
     return (
       <Typography variant='h5' align='center'>
         You haven't add any products to your wishlist yet...

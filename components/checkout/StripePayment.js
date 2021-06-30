@@ -47,42 +47,61 @@ const CheckoutForm = ({ handleNext }) => {
     setError(null);
     setLoading(true);
 
-    const { stripeError, paymentMethod } = await stripe.createPaymentMethod({
-      type: 'card',
-      card: elements.getElement(CardElement),
-    });
-
-    try {
-      // stripe payment
-      const { stripeError, paymentMethod } = await stripe.createPaymentMethod({
-        type: 'card',
-        card: elements.getElement(CardElement),
-      });
-
-      if (stripeError) {
-        setLoading(false);
-        setError(stripeError);
-        return;
-      } else {
-        const { id } = paymentMethod;
-
+    setTimeout(async () => {
+      try {
         await fetch('/api/charge', {
           method: 'POST',
           body: JSON.stringify({
             purchaser,
             cartItems: cartItemsInArrayFormat,
-            id,
             amount: (cartTotal * 100).toFixed(0),
           }), //cents
           headers: { 'Content-Type': 'application/json' },
         });
         setLoading(false);
         handleNext();
+      } catch (err) {
+        setLoading(false);
+        setError(err.message);
       }
-    } catch (err) {
-      setLoading(false);
-      setError(err.message);
-    }
+    }, [2000]);
+
+    // const { stripeError, paymentMethod } = await stripe.createPaymentMethod({
+    //   type: 'card',
+    //   card: elements.getElement(CardElement),
+    // });
+
+    // try {
+    //   // stripe payment
+    //   const { stripeError, paymentMethod } = await stripe.createPaymentMethod({
+    //     type: 'card',
+    //     card: elements.getElement(CardElement),
+    //   });
+
+    //   if (stripeError) {
+    //     setLoading(false);
+    //     setError(stripeError);
+    //     return;
+    //   } else {
+    //     const { id } = paymentMethod;
+
+    //     await fetch('/api/charge', {
+    //       method: 'POST',
+    //       body: JSON.stringify({
+    //         purchaser,
+    //         cartItems: cartItemsInArrayFormat,
+    //         id,
+    //         amount: (cartTotal * 100).toFixed(0),
+    //       }), //cents
+    //       headers: { 'Content-Type': 'application/json' },
+    //     });
+    //     setLoading(false);
+    //     handleNext();
+    //   }
+    // } catch (err) {
+    //   setLoading(false);
+    //   setError(err.message);
+    // }
   };
 
   return (

@@ -9,20 +9,20 @@ const handler = async (req, res) => {
   }
 
   const { purchaser, cartItems, id, amount } = req.body;
-  try {
-    const payment = await stripe.paymentIntents.create({
-      amount,
-      currency: 'USD',
-      description: 'E commerce test app',
-      payment_method: id,
-      confirm: true,
-    });
+  // try {
+  //   const payment = await stripe.paymentIntents.create({
+  //     amount,
+  //     currency: 'USD',
+  //     description: 'E commerce test app',
+  //     payment_method: id,
+  //     confirm: true,
+  //   });
 
-    // return res.status(200).json({ message: 'Payment successful...' });
-  } catch (error) {
-    console.log(error);
-    return res.status(400).json({ message: error.message });
-  }
+  //   // return res.status(200).json({ message: 'Payment successful...' });
+  // } catch (error) {
+  //   console.log(error);
+  //   return res.status(400).json({ message: error.message });
+  // }
 
   try {
     const client = await connectToDatabase('orders');
