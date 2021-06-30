@@ -83,15 +83,14 @@ const ProductDetail = ({ product, session }) => {
   }, []);
 
   const toggleWishlist = () => {
-    const storedItems = JSON.parse(localStorage.getItem('storedItems'));
-    let updatedStoredItems = [...storedItems];
+    let storedItems = JSON.parse(localStorage.getItem('storedItems'));
     if (isOnWishList) {
-      updatedStoredItems = storedItems.filter((item) => item.id !== product.id);
-      localStorage.setItem('storedItems', JSON.stringify(updatedStoredItems));
+      storedItems = storedItems.filter((item) => item.id !== product.id);
+      localStorage.setItem('storedItems', JSON.stringify(storedItems));
       setIsOnWishList(false);
     } else {
-      updatedStoredItems = updatedStoredItems.concat(product);
-      localStorage.setItem('storedItems', JSON.stringify(updatedStoredItems));
+      storedItems = storedItems.concat(product);
+      localStorage.setItem('storedItems', JSON.stringify(storedItems));
       setIsOnWishList(true);
     }
   };
